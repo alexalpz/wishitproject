@@ -68,7 +68,7 @@ $fail = NULL;
 					//Gets the ID of the last inserted row by using the lastInsertId method [9]. It's connecting straight to the web server as well. 
 					$last_id = $dbh->lastInsertId();
 
-					// The variable $imagename contains the name of the file that was uploaded[10]. 
+					// The variable $imagename contains the name of the file that was uploaded[10]. The $imageFileType variable will return information about the directoryname path using pathinfo() function[11]. The PATHINFO_EXTENSION only returns the last extension if the path has more than one extension[12]. 
 					$imagename = $_FILES["myimage"]["name"];
 					$imageFileType = strtolower(pathinfo($imagename, PATHINFO_EXTENSION));
 					$target_dir = "uploads/";
@@ -126,5 +126,7 @@ $fail = NULL;
 [8]  (https://www.php.net/manual/en/mysqli.quickstart.prepared-statements.php)
 [9]  (https://thisinterestsme.com/pdo-get-last-inserted-id/)
 [10] (https://stackoverflow.com/questions/23558180/every-image-has-two-different-filename-together-tmp-name-and-filesfilen)
+[11] (https://www.geeksforgeeks.org/php-pathinfo-function/)
+[12] (https://www.geeksforgeeks.org/php-pathinfo-function/)
 */
 ?>
