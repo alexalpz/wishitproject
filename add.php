@@ -77,6 +77,7 @@ $fail = NULL;
 
 					//move_uploaded_file — Moves an uploaded file to a new location [14]. File will be stored in temporary location when using tmp_name instead of name [15]. If the server sends a correct redirection header, the browser redirects and  changes the url. May bring browser issues[16]. 
 					//TODO: For the header, it requires an absolute URI as argument to use "Location:" including the scheme, hostname and absolute path[16]. 
+					
 					//if (!move_uploaded_file($_FILES["myimage"]["tmp_name"], $target_file)) {
 					//	header("Location: wishlist.php?error=image");
 					//}
