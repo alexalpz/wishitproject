@@ -62,7 +62,7 @@ $fail = NULL;
 				$stmt = $dbh->prepare($sql);
 				$success = $stmt->execute();
 
-				//
+				// If the query above is succesful, run these blocks of code. Code above may give issues so this part may not be ran.
 				if ($success) {
 					
 					//
