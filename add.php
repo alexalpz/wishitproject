@@ -25,7 +25,8 @@ $fail = NULL;
 		//This determines whether the request was a POST or GET request. [5]
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			
-			// !empty() function will not generate any warning or e-notice when the variable does not exists [6]. The $_POST variable is used to collect values from an input field [7]. Cannot not find in file where "description" variable is receiving input from or how. The "else" statement then fills previouisly empty "$fail" variable. Does not output anything. 
+			// !empty() will will accept any arguments. This function will not generate any warning or e-notice when the variable does not exists [6]. The $_POST variable is being used by PHP to create an associative array with an access key called "description"[7]. Data gets received at server end.  The "else" statment stores string implying no description was entered, may be counterproductive from !empty() method. No output from either statement. 
+			
 			if(!empty($_POST['description'])){
 				$description = $_POST['description'];
 				
@@ -33,14 +34,14 @@ $fail = NULL;
 				$fail = "empty description";
 			}
 			
-			//
+			//!empty() will accept any arguments. No warning if variable does not exists. $_POST creates associative key called "url". Data is received at server end. The "else" stament would store an error message but no output. 
 			if(!empty($_POST['url'])){
 				$url = $_POST['url'];
 			}else{
 				$fail = "empty url";
 			}	
 			
-			//
+			//!empty() will will accept any arguments. No warning if variable does not exists. $_POST creates associative key called "email". Data is received at server end. The "else" stament would store an error message but no output also. 
 			if(!empty($_POST['email'])){
 				$email = $_POST['email'];
 			}else{
@@ -116,6 +117,6 @@ $fail = NULL;
 [4]  (https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP)
 [5]  (https://www.quora.com/Why-do-some-PHP-programmers-use-_SERVER-REQUEST_METHOD-POST)
 [6]  (https://www.geeksforgeeks.org/why-to-check-both-isset-and-empty-function-in-php/)
-[7]  (http://w3schools.sinsixx.com/php/php_post.asp.htm)
+[7]  (https://www.ostraining.com/blog/coding/retrieve-html-form-data-with-php/)
 */
 ?>
