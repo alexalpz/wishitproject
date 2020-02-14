@@ -55,20 +55,20 @@ $fail = NULL;
 			if(empty($fail)){
 
 				//"$sql" variable concatenates two query strings, one involving previous variables that took input from somewhere (If anywhere at all).  A "wishes" table is implied to exists. The "prepare" statement is sent to the database server[8].During execute the client binds parameter values and sends them to the server [8].
-				//TODO: Join querie strings together. Remove quotation marks on variables. Would add querie in prepare parameters.
+				//TODO: Join querie strings together. Remove quotation marks on variables. Would add only a single querie in "prepare" parameters.
 				
 				$sql = "INSERT INTO wishes (email, description, url) " .
 					"VALUES ('$email', '$description', '$url')";			
 				$stmt = $dbh->prepare($sql);
 				$success = $stmt->execute();
 
-				// If the query above is executed succesfully, run this "IF..." statement. Code above may give issues so this part may not run. 
+				// If the query above is executed succesfully, run this "IF..." statement. Code above may give issues.
 				if ($success) {
 					
-					//Gets the ID of the last inserted row by using the lastInsertId method [9]. It's connecting straight to the web server as well. 
+					//Gets the ID of the last inserted row by using the lastInsertId method from the web server[9].  
 					$last_id = $dbh->lastInsertId();
 
-					// The variable $imagename contains the name of the file that was uploaded[10]. The $imageFileType variable will return information about the directoryname path using pathinfo() function[11]. The PATHINFO_EXTENSION only returns the last extension if the path has more than one extension[12]. $target_dir = "uploads/" tells the server where to put the uploaded file [13]. target name seems to be trying to concatenate a row's id with a file extension, joining them. Target file tries to concatenate the file path along with the name of the new file using a row's id, doesn't seem practical. 
+					// $imagename contains the name of the file that was uploaded[10]. The $imageFileType variable will return information about the directoryname path using pathinfo() function[11]. The PATHINFO_EXTENSION only returns the last extension if the path has more than one extension[12]. $target_dir = "uploads/" tells the server where to put the uploaded file [13]. $target_name seems to be trying to concatenate a row's id with a file extension, joining them with a string. $target_file tries to concatenate the file path along with the name of the new file using a row's id, doesn't seem practical. 
 					$imagename = $_FILES["myimage"]["name"];
 					$imageFileType = strtolower(pathinfo($imagename, PATHINFO_EXTENSION));
 					$target_dir = "uploads/";
@@ -82,12 +82,13 @@ $fail = NULL;
 					//	header("Location: wishlist.php?error=image");
 					//}
 
-					//
+					//This block of code is attempting to reconfigure the latest file handle once it has been modified. 
 					$sql = "UPDATE wishes SET imagefile = '$target_name' WHERE wishid = '$last_id'";			
 					$stmt = $dbh->prepare($sql);
 					$success = $stmt->execute();
 					
-					//
+					//There's a  package installation for ImageMagick that would be considered a syntax error in this code.  The $cmd variable is holding a string that looks like it wants to use a mix of php and commands that would not work anywhere. 
+					//TODO: Remove this package installation from file. Remove "$cmd" variable and it's execution command.
 					/* 
 					sudo apt-get install imagemagick
 					*/
