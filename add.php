@@ -17,7 +17,7 @@ $fail = NULL;
 	//All of the code within the try block is executed until an exception is potentially thrown. The code within the catch statement must handle the exception that was thrown.
 	try{
 
-		//
+		// First line is connecting to web server and database and the second line is connecting as the admin using the password required to be authorized.  PDO error mode attribute (controls error reporting) to raise a PDOException that tells you what went wrong when it goes wrong. [4]
 		$conn_string = "mysql:host=localhost;dbname=wishit";
 		$dbh= new PDO($conn_string, "phpmyadmin", "studentstudent");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -113,5 +113,6 @@ $fail = NULL;
 [1]  (http://www.peachpit.com/articles/article.aspx?p=674688&seqNum=4)
 [2]  (https://www.php.net/manual/en/function.error-reporting.php)
 [3]  (https://www.php.net/manual/en/function.error-reporting.php)
+[4]  (https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP)
 */
 ?>
