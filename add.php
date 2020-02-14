@@ -62,13 +62,13 @@ $fail = NULL;
 				$stmt = $dbh->prepare($sql);
 				$success = $stmt->execute();
 
-				// If the query above is succesful, run these blocks of code. Code above may give issues so this part may not be ran.
+				// If the query above is executed succesfully, run this "IF..." statement. Code above may give issues so this part may not run. 
 				if ($success) {
 					
-					//
+					//Gets the ID of the last inserted row by using the lastInsertId method [9]. It's connecting straight to the web server as well. 
 					$last_id = $dbh->lastInsertId();
 
-					//
+					// The variable $imagename contains the name of the file that was uploaded[10]. 
 					$imagename = $_FILES["myimage"]["name"];
 					$imageFileType = strtolower(pathinfo($imagename, PATHINFO_EXTENSION));
 					$target_dir = "uploads/";
@@ -124,5 +124,7 @@ $fail = NULL;
 [6]  (https://www.geeksforgeeks.org/why-to-check-both-isset-and-empty-function-in-php/)
 [7]  (https://www.ostraining.com/blog/coding/retrieve-html-form-data-with-php/)
 [8]  (https://www.php.net/manual/en/mysqli.quickstart.prepared-statements.php)
+[9]  (https://thisinterestsme.com/pdo-get-last-inserted-id/)
+[10] (https://stackoverflow.com/questions/23558180/every-image-has-two-different-filename-together-tmp-name-and-filesfilen)
 */
 ?>
