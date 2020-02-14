@@ -98,22 +98,22 @@ $fail = NULL;
 
 			}
 				
-			//
+			//Without any specified conditions about what the "$success" variable should be or have, we send a raw HTTP header to the server[17]. This redirects the browser to the wishit application.
 			if ($success) {
 				header("Location: wishlist.php");	
 
 
-			//
+			//Sends a hdeader to the server that displays there was an error with this file in particular. 
 			} else {
 				header("Location: wishlist.php?error=add");
 			}
 			
-		//
+		//Sends a header with the same location as the "If" statement, regardless if the wishit application's intended querie commands worked or not. Seems unpractical. 
 		}else{
 			header("Location: wishlist.php");	
 		}
 
-	//	
+	//
 	}catch(Exception $e){
 		header("Location: wishlist.php?error=db");
 	}
@@ -135,5 +135,6 @@ $fail = NULL;
 [14] (https://www.php.net/manual/en/function.move-uploaded-file.php)
 [15] (https://stackoverflow.com/questions/18929178/move-uploaded-file-function-is-not-working)
 [16] (https://stackoverflow.com/questions/7467330/php-headerlocation-force-url-change-in-address-bar)
+[17] (https://www.geeksforgeeks.org/php-header-function/)
 */
 ?>
