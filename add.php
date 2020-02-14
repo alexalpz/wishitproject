@@ -21,11 +21,11 @@ $fail = NULL;
 		$conn_string = "mysql:host=localhost;dbname=wishit";
 		$dbh= new PDO($conn_string, "phpmyadmin", "studentstudent");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		
-		//
+		 
+		//This determines whether the request was a POST or GET request. [5]
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			
-			//
+			// !empty() function will not generate any warning or e-notice when the variable does not exists [6]. The $_POST variable is used to collect values from a form with method="post" [7].  
 			if(!empty($_POST['description'])){
 				$description = $_POST['description'];
 				
@@ -114,5 +114,8 @@ $fail = NULL;
 [2]  (https://www.php.net/manual/en/function.error-reporting.php)
 [3]  (https://www.php.net/manual/en/function.error-reporting.php)
 [4]  (https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP)
+[5]  (https://www.quora.com/Why-do-some-PHP-programmers-use-_SERVER-REQUEST_METHOD-POST)
+[6]  (https://www.geeksforgeeks.org/why-to-check-both-isset-and-empty-function-in-php/)
+[7]  (http://w3schools.sinsixx.com/php/php_post.asp.htm)
 */
 ?>
