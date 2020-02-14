@@ -68,14 +68,15 @@ $fail = NULL;
 					//Gets the ID of the last inserted row by using the lastInsertId method [9]. It's connecting straight to the web server as well. 
 					$last_id = $dbh->lastInsertId();
 
-					// The variable $imagename contains the name of the file that was uploaded[10]. The $imageFileType variable will return information about the directoryname path using pathinfo() function[11]. The PATHINFO_EXTENSION only returns the last extension if the path has more than one extension[12]. $target_dir = "uploads/" tells the server where to put the uploaded file [13]. target name seems to be trying to concatenate a row's id with a file extension, joining them. Target file tries to concatenate the file path along with the name of the new file using a row's id. 
+					// The variable $imagename contains the name of the file that was uploaded[10]. The $imageFileType variable will return information about the directoryname path using pathinfo() function[11]. The PATHINFO_EXTENSION only returns the last extension if the path has more than one extension[12]. $target_dir = "uploads/" tells the server where to put the uploaded file [13]. target name seems to be trying to concatenate a row's id with a file extension, joining them. Target file tries to concatenate the file path along with the name of the new file using a row's id, doesn't seem practical. 
 					$imagename = $_FILES["myimage"]["name"];
 					$imageFileType = strtolower(pathinfo($imagename, PATHINFO_EXTENSION));
 					$target_dir = "uploads/";
 					$target_name = $last_id . "." . $imageFileType;
 					$target_file = $target_dir . $target_name;
 
-					//
+					//move_uploaded_file — Moves an uploaded file to a new location [14]. File will be stored in temporary location when using tmp_name instead of name [15]. If the server sends a correct redirection header, the browser redirects and  changes the url. May bring browser issues[16]. 
+					//TODO: For the header, it requires an absolute URI as argument to use "Location:" including the scheme, hostname and absolute path[16]. 
 					//if (!move_uploaded_file($_FILES["myimage"]["tmp_name"], $target_file)) {
 					//	header("Location: wishlist.php?error=image");
 					//}
@@ -129,5 +130,8 @@ $fail = NULL;
 [11] (https://www.geeksforgeeks.org/php-pathinfo-function/)
 [12] (https://www.geeksforgeeks.org/php-pathinfo-function/)
 [13] (https://www.bitdegree.org/learn/php-file-upload)
+[14] (https://www.php.net/manual/en/function.move-uploaded-file.php)
+[15] (https://stackoverflow.com/questions/18929178/move-uploaded-file-function-is-not-working)
+[16] (https://stackoverflow.com/questions/7467330/php-headerlocation-force-url-change-in-address-bar)
 */
 ?>
