@@ -30,10 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	}
 }
 
-//
+//The "Try" statment is attempting to connect to the web server but it may throw an exception if the following block of code does not go through succesfully [9]. 
 try{
 
-	//
+	//Blocks of code attempting to connect to the web server and database. First line is connecting to web server and database and the second line is connecting as the admin using the password required to be authorized.  PDO ERRMODR attribute (controls error reporting) to raise a PDOException that tells you what went wrong when it goes wrong. [10]
 	$conn_string = "mysql:host=localhost;dbname=wishit";
 	$dbh= new PDO($conn_string, "phpmyadmin", "studentstudent");
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -181,8 +181,11 @@ try{
 							 [3] https://www.base64decoder.io/php/
 							 [4] https://my.bluehost.com/hosting/help/241
 							 [5] https://www.w3schools.com/php/func_misc_exit.asp
-							 [6] https://www.sitepoint.com/community/t/if--server-request-method-post-vs-isset-submit/252336/5				      [7] https://www.w3schools.com/php/func_array_key_exists.asp
+							 [6] https://www.sitepoint.com/community/t/if--server-request-method-post-vs-isset-submit/252336/5				      
+							 [7] https://www.w3schools.com/php/func_array_key_exists.asp
 							 [8] http://shodor.org/~kevink/phpTutorial/nileshc_getreqpost.php
+							 [9] https://stackify.com/php-try-catch-php-exception-tutorial/
+							 [10]https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP
 							 */
 						} ?>
 				</div>
