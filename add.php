@@ -25,7 +25,7 @@ $fail = NULL;
 		//This determines whether the request was a POST or GET request. [5]
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			
-			// !empty() function will not generate any warning or e-notice when the variable does not exists [6]. The $_POST variable is used to collect values from a form with method="post" [7].  
+			// !empty() function will not generate any warning or e-notice when the variable does not exists [6]. The $_POST variable is used to collect values from an input field [7]. Cannot not find in file where "description" variable is receiving input from or how. The "else" statement then fills previouisly empty "$fail" variable. Does not output anything. 
 			if(!empty($_POST['description'])){
 				$description = $_POST['description'];
 				
