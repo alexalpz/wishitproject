@@ -25,7 +25,7 @@ $fail = NULL;
 		//This determines whether the request was a POST or GET request. [5]
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			
-			// !empty() will will accept any arguments. This function will not generate any warning or e-notice when the variable does not exists [6]. The $_POST variable is being used by PHP to create an associative array with an access key called "description"[7]. Data gets received at server end.  The "else" statment stores string implying no description was entered, may be counterproductive from !empty() method. No output from either statement. 
+			// !empty() will will accept any arguments. This function generate warning when variable does not exists [6]. The $_POST variable is being used to create an associative array with an access key called "description"[7]. Data gets received at server end.  The "else" statment stores string implying no description was entered, may be counterproductive from !empty() method. No output from either statement. 
 			
 			if(!empty($_POST['description'])){
 				$description = $_POST['description'];
@@ -41,7 +41,9 @@ $fail = NULL;
 				$fail = "empty url";
 			}	
 			
-			//!empty() will will accept any arguments. No warning if variable does not exists. $_POST creates associative key called "email". Data is received at server end. The "else" stament would store an error message but no output also. 
+			//!empty() will will accept any arguments. No warning if variable does not exists. $_POST creates associative key called "email". Data is received at server end. The "else" stament would store an error message but no output also. All "if" statements seem to be sharing the same "fail" variable. 
+			//TODO: Should differentiate each "if" statements "else" variables to not receive incorrect output. 
+			
 			if(!empty($_POST['email'])){
 				$email = $_POST['email'];
 			}else{
