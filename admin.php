@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	//The "array_key_exists" checks if the given key or index exists in the array. The "error" string specifies the key, and the $_GET specifies which array [7].
 	if(array_key_exists("error", $_GET)){
 		
-		//$_GET syntax is being used but there is no form in this file that contains the GET Method. 
+		//$_GET syntax is being used but there is no form in this file that contains the GET Method [8]. It's also comparing the key value to a string. Not entirely sure when 'db' would be be entered as data, this block of code may not be executed. 
 		if ($_GET['error'] == 'db') {
 			$errors[] = "Uh oh! There was a problem with the database.";
 		}
@@ -181,8 +181,8 @@ try{
 							 [3] https://www.base64decoder.io/php/
 							 [4] https://my.bluehost.com/hosting/help/241
 							 [5] https://www.w3schools.com/php/func_misc_exit.asp
-							 [6] https://www.sitepoint.com/community/t/if--server-request-method-post-vs-isset-submit/252336/5				      
-							 [7] https://www.w3schools.com/php/func_array_key_exists.asp
+							 [6] https://www.sitepoint.com/community/t/if--server-request-method-post-vs-isset-submit/252336/5				      [7] https://www.w3schools.com/php/func_array_key_exists.asp
+							 [8] http://shodor.org/~kevink/phpTutorial/nileshc_getreqpost.php
 							 */
 						} ?>
 				</div>
