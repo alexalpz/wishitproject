@@ -51,10 +51,12 @@ $fail = NULL;
 				$fail = "empty email";
 			}			
 			
-			//
+			//empty method will check whether the "$fail" variable is empty. the !empty method above made sure it did have a varible. This whole stament may not be used.
 			if(empty($fail)){
 
-				//
+				//"$sql" variable concatenates two query strings, one involving previous variables that took input from somewhere (If anywhere at all).  A "wishes" table is implied to exists. The "prepare" statement is sent to the database server[8].During execute the client binds parameter values and sends them to the server [8].
+				//TODO: Join querie strings together. Remove quotation marks on variables. Would add querie in prepare parameters.
+				
 				$sql = "INSERT INTO wishes (email, description, url) " .
 					"VALUES ('$email', '$description', '$url')";			
 				$stmt = $dbh->prepare($sql);
@@ -121,5 +123,6 @@ $fail = NULL;
 [5]  (https://www.quora.com/Why-do-some-PHP-programmers-use-_SERVER-REQUEST_METHOD-POST)
 [6]  (https://www.geeksforgeeks.org/why-to-check-both-isset-and-empty-function-in-php/)
 [7]  (https://www.ostraining.com/blog/coding/retrieve-html-form-data-with-php/)
+[8]  (https://www.php.net/manual/en/mysqli.quickstart.prepared-statements.php)
 */
 ?>
