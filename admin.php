@@ -38,18 +38,20 @@ try{
 	$dbh= new PDO($conn_string, "phpmyadmin", "studentstudent");
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	//
+	// $sql variable stores querie to list any user with particular email, execution is not in a variable to be stored. 
+	//TODO: Add variable name to execution line. 
 	$sql = "SELECT * FROM users where email = '$email';";
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
 
-	//
+	//Fetch all of the remaining rows in the result set from database [11], but $stmt variable isn't the right variable to call here. 
+	//TODO: Call proper variable name once named the execution line above. 
 	$records = $stmt->fetchAll();
 
-	// 
+	// If the data does not exists, continue with the following blocks of code.
 	if (count($records) < 1) {
 
-		//
+		// continue to send a HTTP header to the server display error on login page.  
 		header("Location: index.php?notloggedin=true");
 		exit();
 
@@ -186,6 +188,7 @@ try{
 							 [8] http://shodor.org/~kevink/phpTutorial/nileshc_getreqpost.php
 							 [9] https://stackify.com/php-try-catch-php-exception-tutorial/
 							 [10]https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP
+							 [11]https://www.php.net/manual/en/pdostatement.fetchall.php
 							 */
 						} ?>
 				</div>
