@@ -17,10 +17,10 @@ if (isset($_COOKIE['wishit_session_id'])) {
 	
 }
 
-//
+// The purpose of this function is to check whether the request was done via GET method [6].
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	
-	//
+	//The "array_key_exists" checks if the given key or index exists in the array. The "error" string specifies the key, and the $_GET specifies which array [7].
 	if(array_key_exists("error", $_GET)){
 		
 		// 
@@ -181,6 +181,7 @@ try{
 							 [3] https://www.base64decoder.io/php/
 							 [4] https://my.bluehost.com/hosting/help/241
 							 [5] https://www.w3schools.com/php/func_misc_exit.asp
+							 [6] https://www.sitepoint.com/community/t/if--server-request-method-post-vs-isset-submit/252336/5				      [7] https://www.w3schools.com/php/func_array_key_exists.asp
 							 */
 						} ?>
 				</div>
