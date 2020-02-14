@@ -1,14 +1,17 @@
 <?php
 
-//
+//The isset() function return false if testing variable contains a NULL value[1]. The value in this case contains the value of a cookie [2].
+
+
 if (isset($_COOKIE['wishit_session_id'])) {
 
-	//
+	//The $email variable stores built in function "Base64" to grab the encoded cookie value, if it exists, and returns the decoded data, if it has been encoded [3].  
 	$email = base64_decode($_COOKIE['wishit_session_id']);
 
 } else {
 
-	//
+	//This attempts to store a HTTP header of a unlogged page due to missing cookie value but redirects do no work due to PHP variables, in this case "?notloggedin=true" [4]. The "exit" function is missing a required message to print before terminating the script.
+	//TODO: Add some form of exit message to "exit" function. 
 	header("Location: index.php?notloggedin=true");
 	exit();
 	
@@ -170,6 +173,14 @@ try{
 						//   										 
 						for($i = 0; $i < count($errors); $i++) {
 							echo $errors[$i];
+							
+							
+							/*Sources:
+							 [1] https://www.w3resource.com/php/function-reference/isset.php
+							 [2] https://www.php.net/manual/en/function.setcookie.php
+							 [3] https://www.base64decoder.io/php/
+							 [4] https://my.bluehost.com/hosting/help/241
+							 */
 						} ?>
 				</div>
 			<?php } ?>
