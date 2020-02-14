@@ -1,21 +1,25 @@
 <?php
-//
+
+//The first line tells PHP you'd like to see any errors that occur [1]. The second line will determine if the errors will be displayed or hidden to the user. The third line "error_reporting" sets which PHP errors are reported[2]. "E_ALL" reports all PHP errors[3].
+
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-//
+//Setting "dbconnecterror" variable to “false” will display nothing. The variable doesn’t seem to be called anywhere else. it’s possible it has no purpose now. "dbh" variable is a placeholder for future username and password entry to send to database. "fail" variable is a placeholder called for when required input data is missing. 
+
+
 $dbconnecterror = FALSE;
 $dbh = NULL;
 $fail = NULL;
 
 
-	//
+	//All of the code within the try block is executed until an exception is potentially thrown. The code within the catch statement must handle the exception that was thrown.
 	try{
 
 		//
 		$conn_string = "mysql:host=localhost;dbname=wishit";
-		$dbh= new PDO($conn_string, "root", "password");
+		$dbh= new PDO($conn_string, "phpmyadmin", "studentstudent");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		
 		//
@@ -105,8 +109,9 @@ $fail = NULL;
 		header("Location: wishlist.php?error=db");
 	}
 
-		
-	
-
-
+/*Sources:
+[1]  (http://www.peachpit.com/articles/article.aspx?p=674688&seqNum=4)
+[2]  (https://www.php.net/manual/en/function.error-reporting.php)
+[3]  (https://www.php.net/manual/en/function.error-reporting.php)
+*/
 ?>
