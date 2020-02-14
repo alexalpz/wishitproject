@@ -103,17 +103,17 @@ $fail = NULL;
 				header("Location: wishlist.php");	
 
 
-			//Sends a hdeader to the server that displays there was an error with this file in particular. 
+			//Sends an HTTP header to the server that displays there was an error with the wishit application. 
 			} else {
 				header("Location: wishlist.php?error=add");
 			}
 			
-		//Sends a header with the same location as the "If" statement, regardless if the wishit application's intended querie commands worked or not. Seems unpractical. 
+		//Sends an HTTP header with the same location as the "If" statement, regardless if the wishit application's intended querie commands worked or not. Seems unpractical. 
 		}else{
 			header("Location: wishlist.php");	
 		}
 
-	//
+	//This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching throwable first, "$e" [18] . It then plans to send an HTTP header displaying error in the application.
 	}catch(Exception $e){
 		header("Location: wishlist.php?error=db");
 	}
@@ -136,5 +136,6 @@ $fail = NULL;
 [15] (https://stackoverflow.com/questions/18929178/move-uploaded-file-function-is-not-working)
 [16] (https://stackoverflow.com/questions/7467330/php-headerlocation-force-url-change-in-address-bar)
 [17] (https://www.geeksforgeeks.org/php-header-function/)
+[18] (https://www.php.net/manual/en/language.errors.php7.php)
 */
 ?>
