@@ -161,23 +161,24 @@ try{
 			<?php } ?>	
 
 			<?php 
-				//array_key_exists- Checks if the given key or index exists in the array
+				//array_key_exists- Checks if the given key or index exists in the array [18]. If key in array is "add" contain the error message in variable. The variable is not outputting anything. 
 				if (array_key_exists('error', $_GET)) { ?>
 				<?php if ($_GET['error'] == 'add') { 
 					$errors[] = "Uh oh! There was an error adding your wish item. Please try again later.";
 				} ?>
 				<?php 
-				//
+				//$_GET is a PHP super global variable which is used to collect form data after submitting an HTML form with method="get" [19]. If key in array is "delete" contain the error message in a variable. The variable is not outputting anything. 
 				if ($_GET['error'] == 'delete') { 
 					$errors[] = "Uh oh! There was an error deleting your wish item. Please try again later.";
 				}
 			} 
 
-			// 
+			// If the amount of intended "errors" are greater than zero than display a class "error" from css file.  Does not seem practical.
+		//TODO: Add missing div end tag. PHP start and end tag are reversed, fix their positions or simply not add them at all since div is html related. 
 			if (count($errors) > 0) { ?>
 				<div class="error">
 					<?php 
-						//   										 
+						//  Lines of PHP indenting to output the amount of "errors" stored in variable. There's no need display amount of errors to users. 									 
 						for($i = 0; $i < count($errors); $i++) {
 							echo $errors[$i];
 							
@@ -200,6 +201,8 @@ try{
 							 [15]https://www.geeksforgeeks.org/sizeof-operator-c/
 							 [16]https://stackoverflow.com/questions/43322413/laravel-php-foreachuserall-as-user-performance
 							 [17]https://html.com/attributes/form-method/
+							 [18]https://www.php.net/manual/en/function.array-key-exists.php
+							 [19]https://www.w3schools.com/php/php_superglobals_get.asp
 							 
 							 */
 						} ?>
