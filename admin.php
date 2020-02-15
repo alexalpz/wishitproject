@@ -44,7 +44,7 @@ try{
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
 
-	//Fetch all of the remaining rows in the result set from database [11], but $stmt variable isn't the right variable to call here. 
+	//Fetch all of the remaining rows in the result set from database [11].
 	//TODO: Call proper variable name once named the execution line above. 
 	$records = $stmt->fetchAll();
 
