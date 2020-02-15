@@ -45,12 +45,12 @@ try{
 		$success = $stmt->execute();
 
 
-		//If the querie above has been executed, place location header in HTTP and redirect browser to wishlist.php page.
+		//If the query above has been executed, place location header in HTTP and redirect browser to wishlist.php page.
 		if ($success) {
 			header("Location: wishlist.php");	
 
 
-		// Attempting to display the error of the querie execution through the header in HTTP. 
+		// Attempting to display the error of the query execution through the header in HTTP. 
 		} else {
 			header("Location: wishlist.php?error=add");
 		}
