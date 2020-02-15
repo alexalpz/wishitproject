@@ -1,4 +1,4 @@
-	<!--Specifying metadata for HTML document. No html beginning or closing tags on this file. -->
+	<!--Specifying metadata for HTML document. No html beginning or closing tags on this file. No PHP code in this file.-->
 	<head>
 		<meta charset="utf-8">
 		<title>wishIT</title>
