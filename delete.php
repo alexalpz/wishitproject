@@ -38,7 +38,7 @@ try{
 			$email = $_POST['email'];
 		}			
 		
-		//"$sql" variable storing query to delete whatever ID had been entered. The "prepare" statement is sent to the database server[8].During execute the client binds parameter values and sends them to the server [8].
+		//"$sql" variable storing query to delete whatever ID had been entered. The "prepare" statement is sent to the database server[10].During execute the client binds parameter values and sends them to the server [10].
 				
 		$sql = "DELETE FROM wishes where wishid = '$wishid'";			
 		$stmt = $dbh->prepare($sql);
@@ -50,7 +50,7 @@ try{
 			header("Location: wishlist.php");	
 
 
-		// Attempting to store the error of execution through the header in HTTP. 
+		// Attempting to display the error of the querie execution through the header in HTTP. 
 		} else {
 			header("Location: wishlist.php?error=add");
 		}
@@ -60,7 +60,7 @@ try{
 		header("Location: wishlist.php");	
 	}
 
-//	
+//This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching throwable first, "$e" [11] . It then plans to send an HTTP header displaying error in the application.	
 }catch(Exception $e){
 	header("Location: wishlist.php?error=db");
 }
@@ -76,7 +76,7 @@ try{
 [8]  (https://www.geeksforgeeks.org/why-to-check-both-isset-and-empty-function-in-php/)
 [9]  (https://www.ostraining.com/blog/coding/retrieve-html-form-data-with-php/)
 [10] (https://www.php.net/manual/en/mysqli.quickstart.prepared-statements.php)
-
+[11] (https://www.php.net/manual/en/language.errors.php7.php)
 
 */
 ?>
