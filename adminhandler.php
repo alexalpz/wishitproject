@@ -63,7 +63,7 @@ try{
 		}
 	}
 
-	//No conditions for line of code. It attempts to redirect to the admin page.
+	//No conditions for line of code. It attempts to redirect the browser to the admin page.
 	//TODO: Add missing required message to the exit parameter. 
 	header("Location: admin.php");
 	exit();
@@ -72,7 +72,8 @@ try{
 	//TODO: Must add required message in exit parameter.
 }catch(Exception $e){
 
-	//
+	//Header send HTTP location header to server displaying there was an error in code. 
+	//TODO: Add error message in "error" parameter. 
 	header("Location: admin.php?error=db");
 	exit();
 }
