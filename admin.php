@@ -58,7 +58,7 @@ try{
 
 	}
 
-	//$sql variable storing querie that lists out all info from a "user" table, no variable is storing the execution.
+	//$sql variable storing query that lists out all info from a "user" table, no variable is storing the execution.
 	//TODO: Create a variable name for execution line. 
 	$sql = "SELECT * FROM users;";
 	$stmt = $dbh->prepare($sql);
@@ -105,7 +105,8 @@ try{
 			//    There is no block of code in between these opening and closing tags of php.
 			?>
 			
-			<!-- A table filled with table headers and no table data where the inputs may go. Table has no closing tag.   -->  <!--TODO: Close table. Need to adjust table format and forms-->
+			<!-- A table filled with table headers and no table data where the inputs may go. Table has no closing tag.   -->  
+			<!--TODO: Close table. Need to adjust table format and forms-->
 			
 				<table>
 					<tr>
