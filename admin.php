@@ -51,21 +51,21 @@ try{
 	// If the data does not exists, continue with the following blocks of code.
 	if (count($records) < 1) {
 
-		// continue to send a HTTP header to the server display error on login page.  
+		// Continue to send a HTTP header to the server display error on login page.  
 		header("Location: index.php?notloggedin=true");
 		exit();
 
 	}
 
-	//
+	//$sql variable storing querie that lists out all info from a "user" table, no variable is storing the execution so it may not be executed. 
 	$sql = "SELECT * FROM users;";
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
 
-	//
+	//The $user variable returns an array containing all of the remaining rows in the result set [12]. 
 	$users = $stmt->fetchAll();
 
-//
+//This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching the throwable first "$e" [13] . It then plans to send an HTTP header displaying error in the application while also trying to concatenate with the last operation on the database handle. var_dump dumps information about a variable [14].
 }catch(Exception $e){
 	$errors[] = "There was an error connecting to the database. Please try again later. Error code " . $dbh->errorCode();
 	var_dump($e);
@@ -189,6 +189,9 @@ try{
 							 [9] https://stackify.com/php-try-catch-php-exception-tutorial/
 							 [10]https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP
 							 [11]https://www.php.net/manual/en/pdostatement.fetchall.php
+							 [12]https://www.php.net/manual/en/pdostatement.fetchall.php
+							 [13]https://www.php.net/manual/en/language.errors.php7.php
+							 [14]https://www.php.net/manual/en/function.var-dump.php
 							 */
 						} ?>
 				</div>
