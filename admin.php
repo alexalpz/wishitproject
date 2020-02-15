@@ -86,19 +86,21 @@ try{
 		<?php require_once('include/header.php');?>
 
 			<?php 
-			//    
+			//  sizeof() simply returns the amount of memory is allocated to that data types [15]. The text in the code is not stored in a variable nor is it being echoed. 
+		//TODO: Echo the "No users list found" text.
 			?>
 			<?php 
 			if (sizeof($users) == 0) { ?>
 				No users list found.
 			
 			<?php 
-			//
+			// There is no block of code inside this else statement to run. 
+				//TODO: Add some code to the else statement for when a user IS found I pressume. 
 			} else { 	
 			?>
 			
 			<?php 
-			//    
+			//    There is no block of code in between these opening and closing tags of php.
 			?>
 			
 			<!-- 			 -->
@@ -192,6 +194,8 @@ try{
 							 [12]https://www.php.net/manual/en/pdostatement.fetchall.php
 							 [13]https://www.php.net/manual/en/language.errors.php7.php
 							 [14]https://www.php.net/manual/en/function.var-dump.php
+							 [15]https://www.geeksforgeeks.org/sizeof-operator-c/
+							 
 							 */
 						} ?>
 				</div>
