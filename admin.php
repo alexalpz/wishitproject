@@ -38,7 +38,7 @@ try{
 	$dbh= new PDO($conn_string, "phpmyadmin", "studentstudent");
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	// $sql variable stores querie to list any user with particular email, execution is not in a variable to be stored. 
+	// $sql variable stores querie to list any user with particular email, execution is not in a variable to be stored.  The "prepare" statement is sent to the database server.During execute the client binds parameter values and sends them to the server
 	//TODO: Add variable name to execution line. 
 	$sql = "SELECT * FROM users where email = '$email';";
 	$stmt = $dbh->prepare($sql);
