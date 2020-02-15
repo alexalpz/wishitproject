@@ -77,12 +77,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		
 		<h3>Register a new account</h3>
 		<?php 
-		//
+		//If errors exists, display the following blocks of code. 
 		if (count($errors) > 0) { ?>
 			<div class="error">
 				The following errors occurred:
 				<ul>
-				<?php //    ?>
+				<?php // These lines hope to display the amount of errors that has occured. Not good practice.   ?>
 				<?php for($i = 0; $i < count($errors); $i++) { ?>
 					<li><?php echo $errors[$i]; ?></li>
 				<?php } ?>
@@ -92,11 +92,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 		<div>
 
-			<!-- 			 -->
+			<!-- A register form expecting data input from the users. -->
+			<!-- Added required to the username and password fields-->
 			<form name="register" action="register.php" method="post" onsubmit="return validateForm()">
-				<input type="text" name="username" id="username" placeholder="Pick a username" value="<?php echo $username; ?>">
+				<input type="text" name="username" id="username" placeholder="Pick a username" required value="<?php echo $username; ?>">
 				<br>
-				<input type="password" name="password" id="password" placeholder="Provide a password" value="<?php echo $password; ?>" >
+				<input type="password" name="password" id="password" placeholder="Provide a password" required value="<?php echo $password; ?>" >
 				<br>
 				<input type="email" name="email" id="email" placeholder="Please enter your email address" size="50" value="<?php echo $email; ?>">
 				<br>
@@ -108,44 +109,44 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			</form>
 		</div>
 		
-		<!-- 		 -->
+		<!-- Link that redirects user to Sign in form (at the index page)-->
 		<a class="loginLinks" href="index.php">Sign in?</a>
 
-		<!-- 			 -->
+		<!-- 	A javascript file used for validating data input on the register form-->
 		<script>
 
-			//
+			//Form specified to validate the form here. 
 			function validateForm() {
 
-				//
+				//If a form field (username) is empty, this function alerts a message, and returns false, to prevent the form from being submitted.
 				var username = document.forms["register"]["username"].value;
 				if (username == "") {
 					alert("Username must be filled out");
 					return false;
 				}
 
-				//
+				//If a form field (password) is empty, this function alerts a message, and returns false, to prevent the form from being submitted.
 				var password = document.forms["register"]["password"].value;
 				if (password == "") {
 					alert("Password must be filled out");
 					return false;
 				}
 				
-				//
+				//If a form field (email) is empty, this function alerts a message, and returns false, to prevent the form from being submitted.
 				var email = document.forms["register"]["email"].value;
 				if (email == "") {
 					alert("Email must be filled out");
 					return false;
 				}
 
-				//
+				//If a form field (security question) is empty, this function alerts a message, and returns false, to prevent the form from being submitted.
 				var securityquestion = document.forms["register"]["securityquestion"].value;
 				if (securityquestion == "") {
 					alert("Security question must be filled out");
 					return false;
 				}			  
 
-				//
+				//If a form field (security answer) is empty, this function alerts a message, and returns false, to prevent the form from being submitted.
 				var securityanswer = document.forms["register"]["securityanswer"].value;
 				if (securityanswer == "") {
 					alert("Security answer must be filled out");
@@ -164,6 +165,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			[7]  (https://www.geeksforgeeks.org/why-to-check-both-isset-and-empty-function-in-php/)
 			[8]  (https://www.php.net/manual/en/pdostatement.errorcode.php)
 			[9]  (https://www.php.net/manual/en/language.errors.php7.php)
+			https://www.w3schools.com/js/js_validation.asp
 			
 			
 			
