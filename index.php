@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$email = $records[0]['email'];
 			$isadmin = $records[0]['isadmin'];
 
-			//
+			//time() function with the number of seconds before you want it to expire. If set to 0, or omitted, the cookie will expire at the end of the session (when the browser closes)[11]. The base64_encoded is designed to make binary data survive transport through transport layers that are not 8-bit clean, such as email bodies [12]. setcookie() defines a cookie to be sent along with the rest of the HTTP headers [13]. On setcookie function, the "wishit_session_id" specifies the name of the cookie. The $token variable specifies the value of the cookie and the $expires says when the cookie expires[13]. When the if statement mathes with a 1 value somehow, it would use the wishit isadmin name and set the cookie value to 1. 
 			$expires = time()+60*60*24*30;
 			$token = base64_encode($email);
 			setcookie('wishit_session_id', $token, $expires);
@@ -67,30 +67,31 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				setcookie('wishit_isadmin', "1", $expires);
 			}
 
-			// 
+			// Sends an HTTP header to the server that displays the name of the page as well as redirect the browser to the wishlist.php page.
+			//TODO: ADD required exit message in error parameter. 
 			header("Location: wishlist.php");
 			exit();
 
-		//
+		// If code above does not succesfully go through, store a error message in a variable. No output. 
 		}else {
 			$errors[] = "Uh oh! Bad username and/or password used.";
 		}
 
 
-	//
+	//This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching throwable first, "$e" . It then plans to send an HTTP header displaying error in the application.
 	}catch(Exception $e){
 		$errors[] = "Uh oh! here was an error connecting to the database. Please try again later. Error code " . $dbh->errorCode();
 	}
 
 }
 
-//
+//This determines whether the request was a POST or GET request, in this case it is GET. 
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
-	//
+	//isset determines if a variable is declared and is different than NULL [14]. $_GET is used to collect form data after submitting an HTML form with method="get" [15].
 	if (isset($_GET['notloggedin'])) {
 
-		//
+		//This variable is storing a string. This is not an array. 
 		$errors[] = "Login required.";
 		
 	}
@@ -112,7 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
 
 		<?php 
-		//
+		//isset determines if a variable is declared and is different than NULL [14]. $_GET is used to collect form data after submitting an HTML form with method="get" [15].
 		if (isset($_GET['registered'])) { ?>
 			<div class="message">
 				Registration successful. Please login.
@@ -120,13 +121,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		<?php } ?>
 
 		<div>
-			<!-- 			 -->
+			<!-- Form field requiring username and password from user using POST method. 			 -->
+			<!--TODO: Added "required" to the inputs -->
 			<form method="post" action="index.php">
 				
-				<input type="text" name="username" id="username" placeholder="Username" value="<?php echo $username; ?>">
+				<input type="text" name="username" id="username" placeholder="Username" required value="<?php echo $username; ?>">
 				<br>
 	
-				<input type="password" name="password" id="password" placeholder="Password" value="<?php echo $password; ?>">
+				<input type="password" name="password" id="password" placeholder="Password" required value="<?php echo $password; ?>">
 				<br>
 	
 				<input type="submit" value="Login" name="login" id="submitBtn">
@@ -135,16 +137,16 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 		</div>
 
 
-		<!-- 		 -->
+		<!-- Links to the register and reset page to create an account or find lost password. -->
 		<a class="loginLinks" href="register.php">Create Account?</a> &nbsp; &nbsp;
 		<a class="loginLinks" href="reset.php">Forgot Password?</a>
 		
 		
-		<!-- 		 -->
+		<!-- If an error has been recorded at all, run the next lines of code. divstyling the blocks of code using a class.		 -->
 		<?php if (count($errors) > 0) { ?>
 			<div class="error">
 				<ul>
-				<?php //    ?>
+				<?php //Outputting error count if it exists. Best to not output this information.    ?>
 				<?php for($i = 0; $i < count($errors); $i++) { ?>
 					<?php echo $errors[$i]; ?>
 				<?php } ?>
@@ -162,6 +164,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 [8]  (https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP)
 [9]  (https://www.php.net/manual/en/pdostatement.fetchall.php)
 [10] (https://www.php.net/manual/en/language.types.array.php)
+[11] (https://teamtreehouse.com/library/writing-cookies)
+[12] (https://www.php.net/manual/en/function.base64-encode.php)
+[13] (https://www.php.net/manual/en/function.setcookie.php)
+[14] (https://www.php.net/manual/en/function.isset.php)
+[15] (https://www.w3schools.com/php/php_superglobals_get.asp)
 					
 */
 
