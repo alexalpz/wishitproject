@@ -103,8 +103,9 @@ try{
 			//    There is no block of code in between these opening and closing tags of php.
 			?>
 			
-			<!-- 			 -->
-			<table>
+			<!-- A table filled with table headers and no table data where the inputs may go. -->
+			
+				<table>
 					<tr>
 						<th>Email </th>						
 						<th>Username </th>
@@ -117,7 +118,7 @@ try{
 												
 					</tr>
 				<?php 
-					// 
+					// foreach ($users as $user) creates just one database query[16]. There seems to be a missing curly bracket as well as a line of code for it. May not work at all. The rest of the variables after it intend to store email,username,password...etc, into an array called $user. 
 					foreach ($users as $user) { ?>
 					<?php 
 						$email = $user['email'];
@@ -195,6 +196,7 @@ try{
 							 [13]https://www.php.net/manual/en/language.errors.php7.php
 							 [14]https://www.php.net/manual/en/function.var-dump.php
 							 [15]https://www.geeksforgeeks.org/sizeof-operator-c/
+							 [16]https://stackoverflow.com/questions/43322413/laravel-php-foreachuserall-as-user-performance
 							 
 							 */
 						} ?>
