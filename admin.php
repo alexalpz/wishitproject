@@ -52,12 +52,14 @@ try{
 	if (count($records) < 1) {
 
 		// Continue to send a HTTP header to the server display error on login page.  
+		//TODO: Add required message to exit parameter. 
 		header("Location: index.php?notloggedin=true");
 		exit();
 
 	}
 
-	//$sql variable storing querie that lists out all info from a "user" table, no variable is storing the execution so it may not be executed. 
+	//$sql variable storing querie that lists out all info from a "user" table, no variable is storing the execution.
+	//TODO: Create a variable name for execution line. 
 	$sql = "SELECT * FROM users;";
 	$stmt = $dbh->prepare($sql);
 	$stmt->execute();
@@ -167,7 +169,7 @@ try{
 					$errors[] = "Uh oh! There was an error adding your wish item. Please try again later.";
 				} ?>
 				<?php 
-				//$_GET is a PHP super global variable which is used to collect form data after submitting an HTML form with method="get" [19]. If key in array is "delete" contain the error message in a variable. The variable is not outputting anything. 
+				//$_GET is used to collect form data after submitting an HTML form with method="get" [19]. If key in array is "delete" contain the error message in a variable. The variable is not outputting anything. 
 				if ($_GET['error'] == 'delete') { 
 					$errors[] = "Uh oh! There was an error deleting your wish item. Please try again later.";
 				}
