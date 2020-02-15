@@ -120,7 +120,8 @@ try{
 												
 					</tr>
 				<?php 
-					// foreach ($users as $user) creates just one database query[16]. There seems to be a missing curly bracket as well as a line of code for it. May not work at all. The rest of the variables after it intend to store email,username,password...etc, into an array called $user. 
+					// foreach ($users as $user) creates just one database query[16]. The rest of the variables after it intend to store email,username,password...etc, into an array called $user. 
+					//TODO: Can't find ending curly bracket. Should be in same block of code. 
 					foreach ($users as $user) { ?>
 					<?php 
 						$email = $user['email'];
@@ -175,12 +176,12 @@ try{
 				}
 			} 
 
-			// If the amount of intended "errors" are greater than zero than display a class "error" from css file.  Does not seem practical.
-		//TODO: Add missing div end tag. PHP start and end tag are reversed, fix their positions or simply not add them at all since div is html related. 
+			// If the amount of intended "errors" exists then display following codes . 
+		//TODO: Add missing "div" end tag. Fix PHP positions. End tag is in the beginning of line of code. Starting tag is elsewhere. 
 			if (count($errors) > 0) { ?>
 				<div class="error">
 					<?php 
-						//  Lines of PHP indenting to output the amount of "errors" stored in variable. There's no need display amount of errors to users. 									 
+						//  Lines of PHP intending to output the amount of "errors" stored in variable. There's no need display amount of errors to users. 									 
 						for($i = 0; $i < count($errors); $i++) {
 							echo $errors[$i];
 							
