@@ -185,27 +185,27 @@ try{
 							echo $errors[$i];
 							
 							
-							/*Sources:
-							 [1] https://www.w3resource.com/php/function-reference/isset.php
-							 [2] https://www.php.net/manual/en/function.setcookie.php
-							 [3] https://www.base64decoder.io/php/
-							 [4] https://my.bluehost.com/hosting/help/241
-							 [5] https://www.w3schools.com/php/func_misc_exit.asp
-							 [6] https://www.sitepoint.com/community/t/if--server-request-method-post-vs-isset-submit/252336/5				      
-							 [7] https://www.w3schools.com/php/func_array_key_exists.asp
-							 [8] http://shodor.org/~kevink/phpTutorial/nileshc_getreqpost.php
-							 [9] https://stackify.com/php-try-catch-php-exception-tutorial/
-							 [10]https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP
-							 [11]https://www.php.net/manual/en/pdostatement.fetchall.php
-							 [12]https://www.php.net/manual/en/pdostatement.fetchall.php
-							 [13]https://www.php.net/manual/en/language.errors.php7.php
-							 [14]https://www.php.net/manual/en/function.var-dump.php
-							 [15]https://www.geeksforgeeks.org/sizeof-operator-c/
-							 [16]https://stackoverflow.com/questions/43322413/laravel-php-foreachuserall-as-user-performance
-							 [17]https://html.com/attributes/form-method/
-							 [18]https://www.php.net/manual/en/function.array-key-exists.php
-							 [19]https://www.w3schools.com/php/php_superglobals_get.asp
-							 
+/*Sources:
+ [1] https://www.w3resource.com/php/function-reference/isset.php
+ [2] https://www.php.net/manual/en/function.setcookie.php
+ [3] https://www.base64decoder.io/php/
+ [4] https://my.bluehost.com/hosting/help/241
+ [5] https://www.w3schools.com/php/func_misc_exit.asp
+ [6] https://www.sitepoint.com/community/t/if--server-request-method-post-vs-isset-submit/252336/5				      
+ [7] https://www.w3schools.com/php/func_array_key_exists.asp
+ [8] http://shodor.org/~kevink/phpTutorial/nileshc_getreqpost.php
+ [9] https://stackify.com/php-try-catch-php-exception-tutorial/
+ [10]https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP
+ [11]https://www.php.net/manual/en/pdostatement.fetchall.php
+ [12]https://www.php.net/manual/en/pdostatement.fetchall.php
+ [13]https://www.php.net/manual/en/language.errors.php7.php
+ [14]https://www.php.net/manual/en/function.var-dump.php
+ [15]https://www.geeksforgeeks.org/sizeof-operator-c/
+ [16]https://stackoverflow.com/questions/43322413/laravel-php-foreachuserall-as-user-performance
+ [17]https://html.com/attributes/form-method/
+ [18]https://www.php.net/manual/en/function.array-key-exists.php
+ [19]https://www.w3schools.com/php/php_superglobals_get.asp
+
 							 */
 						} ?>
 				</div>
