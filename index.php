@@ -11,11 +11,11 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-//Setting "dbconnecterror" variable to “false” won't display anything.  "dbh" is placeholder variable that will connect to the webserver. 
+//Setting "dbconnecterror" variable to “false” won't display anything for now.  "dbh" is placeholder variable that will connect to the webserver. 
 $dbconnecterror = FALSE;
 $dbh = NULL;
 
-//Two variables with empty strings. 
+//Two variables with blank strings. 
 $username = "";
 $password = "";
 
@@ -58,8 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			//Recursive and multi-dimensional arrays stored in variables [10].
 			$email = $records[0]['email'];
 			$isadmin = $records[0]['isadmin'];
-
-			//time() function with the number of seconds before you want it to expire. If set to 0, or omitted, the cookie will expire at the end of the session (when the browser closes)[11]. The base64_encoded is designed to make binary data survive transport through transport layers that are not 8-bit clean, such as email bodies [12]. setcookie() defines a cookie to be sent along with the rest of the HTTP headers [13]. On setcookie function, the "wishit_session_id" specifies the name of the cookie. The $token variable specifies the value of the cookie and the $expires says when the cookie expires[13]. When the if statement mathes with a 1 value somehow, it would use the wishit isadmin name and set the cookie value to 1. 
+			
+			//This block of codes works with the session times and expiration.
+			//time() function with the number of seconds before you want it to expire. If set omitted, the cookie will expire at the end of the session [11]. On setcookie function, the "wishit_session_id" specifies the name of the cookie. The $token variable specifies the value of the cookie and the $expires says when the cookie expires[13]. 
+			
 			$expires = time()+60*60*24*30;
 			$token = base64_encode($email);
 			setcookie('wishit_session_id', $token, $expires);
@@ -78,7 +80,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		}
 
 
-	//This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching throwable first, "$e" . It then plans to send an HTTP header displaying error in the application.
+	//This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching throwable first, "$e". Stores error message in variable and gets concatenated with the error handler. It gets called but knows nothing about $dbh->errorCode.
+
 	}catch(Exception $e){
 		$errors[] = "Uh oh! here was an error connecting to the database. Please try again later. Error code " . $dbh->errorCode();
 	}
@@ -165,7 +168,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 [9]  (https://www.php.net/manual/en/pdostatement.fetchall.php)
 [10] (https://www.php.net/manual/en/language.types.array.php)
 [11] (https://teamtreehouse.com/library/writing-cookies)
-[12] (https://www.php.net/manual/en/function.base64-encode.php)
 [13] (https://www.php.net/manual/en/function.setcookie.php)
 [14] (https://www.php.net/manual/en/function.isset.php)
 [15] (https://www.w3schools.com/php/php_superglobals_get.asp)
