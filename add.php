@@ -22,7 +22,7 @@ $fail = NULL;
 		$dbh= new PDO($conn_string, "phpmyadmin", "studentstudent");
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		 
-		//This determines whether the request was a POST or GET request. [5]
+		//This determines whether the request was a POST or GET request, in this case it is POST. [5]
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			
 			// !empty() will will accept any arguments. This function generate warning when variable does not exists [6]. The $_POST variable is being used to create an associative array with an access key called "description"[7]. Data gets received at server end.  The "else" statment stores message implying no description was entered, may be counterproductive from !empty() method. No output from either "if" or "else" statement. 
