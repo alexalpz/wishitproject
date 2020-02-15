@@ -25,7 +25,7 @@ $fail = NULL;
 		//This determines whether the request was a POST or GET request, in this case it is POST. [5]
 		if ($_SERVER['REQUEST_METHOD'] == "POST") {
 			
-			// !empty() will will accept any arguments. This function generate warning when variable does not exists [6]. The $_POST variable is being used to create an associative array with an access key called "description"[7]. Data gets received at server end.  The "else" statment stores message implying no description was entered, may be counterproductive from !empty() method. No output from either "if" or "else" statement. 
+			// !empty() will will accept any arguments. This function generate warning when variable does not exists [6]. The $_POST variable is being used to create an associative array with an access key called "description"[7]. Data gets received at server end.  The "else" statment stores message implying no description was entered. No output from either "if" or "else" statement. 
 			
 			if(!empty($_POST['description'])){
 				$description = $_POST['description'];
@@ -41,9 +41,7 @@ $fail = NULL;
 				$fail = "empty url";
 			}	
 			
-			//Similar to code above. !empty() will will accept any arguments. No warning if variable does not exists. $_POST creates associative key called "email". Data is received at server end. The "else" stament would store an error message but no output also. 
-			//All "if" statements seem to be sharing the same "fail" variable. 
-			//TODO: Should differentiate each "if" statement's "else" variable to not receive incorrect outputs. 
+			//Similar to code above. !empty() will will accept any arguments. No warning if variable does not exists. $_POST creates associative key called "email". Data is received at server end. The "else" stament would store an error message but no output also.  
 			
 			if(!empty($_POST['email'])){
 				$email = $_POST['email'];
@@ -51,10 +49,10 @@ $fail = NULL;
 				$fail = "empty email";
 			}			
 			
-			//empty method will check whether the "$fail" variable is empty. the !empty method above made sure it did have a varible. This whole stament may not be used.
+			//empty method will check whether the "$fail" variable is has any values or not. 
 			if(empty($fail)){
 
-				//"$sql" variable concatenates two query strings.  The "prepare" statement is sent to the database server[8].During execute the client binds parameter values and sends them to the server [8].
+				//"$sql" variable concatenates two query strings.  The "prepare" statement is sent to the database server [8]. During execute the client binds parameter values and sends them to the server [8].
 				//TODO: Join querie strings together. Remove quotation marks on variables. Would add only a single querie in "prepare" parameters.
 				
 				$sql = "INSERT INTO wishes (email, description, url) " .
@@ -62,20 +60,20 @@ $fail = NULL;
 				$stmt = $dbh->prepare($sql);
 				$success = $stmt->execute();
 
-				// If the query above is executed succesfully, run this "IF..." statement. Code above may give issues.
+				// If the query above is executed succesfully, run this "IF..." statement. Code above may give issues due to concatenation and variables.
 				if ($success) {
 					
 					//Gets the ID of the last inserted row by using the lastInsertId method from the web server[9].  
 					$last_id = $dbh->lastInsertId();
 
-					// $imagename contains the name of the file that was uploaded[10]. The $imageFileType variable will return information about the directoryname path using pathinfo() function[11]. The PATHINFO_EXTENSION only returns the last extension if the path has more than one extension[12]. $target_dir = "uploads/" tells the server where to put the uploaded file [13]. $target_name seems to be trying to concatenate a row's id with a file extension, joining them with a string. $target_file tries to concatenate the file path along with the name of the new file using a row's id, doesn't seem practical. 
+					// $imagename contains the name of the file that was uploaded[10]. The $imageFileType variable will return information about the directoryname path using pathinfo() function[11]. The PATHINFO_EXTENSION only returns the last extension if the path has more than one extension[12]. $target_dir = "uploads/" tells the server where to put the uploaded file [13]. $target_name seems to be trying to concatenate a row's id with a file extension, joining them with a string. $target_file tries to concatenate the file path along with the name of the new file using a row's id.
 					$imagename = $_FILES["myimage"]["name"];
 					$imageFileType = strtolower(pathinfo($imagename, PATHINFO_EXTENSION));
 					$target_dir = "uploads/";
 					$target_name = $last_id . "." . $imageFileType;
 					$target_file = $target_dir . $target_name;
 
-					//move_uploaded_file — Moves an uploaded file to a new location [14]. File will be stored in temporary location when using tmp_name instead of name [15]. If the server sends a correct redirection header, the browser redirects and  changes the url. May bring browser issues[16]. 
+					//move_uploaded_file moves an uploaded file to a new location [14]. File will be stored in temporary location when using tmp_name instead of name [15]. If the server sends a correct redirection header, the browser redirects and  changes the url. May bring browser issues[16]. 
 					//TODO: For the header, it requires an absolute URI as argument to use "Location:" including the scheme, hostname and absolute path[16]. 
 					
 					//if (!move_uploaded_file($_FILES["myimage"]["tmp_name"], $target_file)) {
@@ -98,7 +96,7 @@ $fail = NULL;
 
 			}
 				
-			//Without any specified conditions about what the "$success" variable should be or have, we send a raw HTTP header to the server[17]. This redirects the browser to the wishit application.
+			//No conditions specified for "$success". We send a raw HTTP header to the server[17]. This redirects the browser to the wishit application.
 			if ($success) {
 				header("Location: wishlist.php");	
 
@@ -108,7 +106,7 @@ $fail = NULL;
 				header("Location: wishlist.php?error=add");
 			}
 			
-		//Sends an HTTP header with the same location as the "If" statement, regardless if the wishit application's intended querie commands worked or not. Seems unpractical. 
+		//Sends an HTTP header with the same location as the "If" statement, regardless if the wishit application's intended query commands worked or not. Seems unpractical. 
 		}else{
 			header("Location: wishlist.php");	
 		}
