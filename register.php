@@ -57,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$errors[] = "There was a problem completing your registration. Error code " . $dbh->errorCode();
 		}
 
-	//This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching throwable first, "$e" [9] . The error handler gets called but knows nothing about $dbh->errorCode. [8].
+	//This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching throwable first, "$e" [9] . It stores error message in variable and the error handler gets called but knows nothing about $dbh->errorCode [8].
 	}catch(Exception $e){
 		$errors[] = "There was an error connecting to the database. Please try again later. Error code " . $dbh->errorCode();
 	}
