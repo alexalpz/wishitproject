@@ -101,20 +101,21 @@ try{
 					foreach ($wishes as $wish) { ?>
 					<?php 
 
-						//
+						// Storing data from arrays in database. 
 						$wishid = $wish['wishid'];
 						$description = $wish['description'];
 						$url = $wish['url'];
 						$imagefile = $wish['imagefile'];
 					?>
-						<!-- 			 -->
+						<!--Form intended to grab users information. Form is never displayed to the user. The user cannot change the value of the field, or interact with it. [12]-->
 						<form method="POST" action="delete.php" style="display: inline-block">
 							<input type="hidden" name="wishid" value="<?php echo $wishid;?>" >
 														
 							<td> <a href="<?php echo $url; ?>" target="_blank" id="url"><?php echo $description; ?></a> </td>
 
 							<?php 
-								//
+								//!empty() will will accept any arguments. This function generate warning when variable does not exists [13]. Attempting to upload a file in regards to the specific user.  
+
 								if(!empty($imagefile)) { ?>
 									<td><a href="<?php echo "uploads/$imagefile"; ?>"><img src="<?php echo "thumb/$imagefile"; ?>"></a></td>
 								<?php } ?>
@@ -126,12 +127,14 @@ try{
 				<?php } ?>
 				
 			<?php } 
-				//
+				//This code seems to only hold the closing tag of previous block of code. Bad practice.
+				//TODO: Join closing tag to code above. 
 			?>	
 		</table>
 		<hr>
 
-		<!-- 			 -->
+		<!-- Table intended to store application's items.  -->
+		<!--TODO: Would fix all the formating involed in this section regarding the forms and table tags-->
 		<table>
 			<tr>				
 				<h3>New wishlist item:</h3>
@@ -142,9 +145,10 @@ try{
 				<th>Add </th>																							
 			</tr>
 			<tr>
-				<!-- 			 -->
+				<!-- 	Form intends to accept input from user regarding an image file -->
+				<!-- TODO: Change url type to "url" -->
 				<form  method="POST" action="add.php" enctype="multipart/form-data">
-						<input type="hidden" name="email" value="<?php echo $email;?>">
+					<input type="hidden" name="email" value="<?php echo $email;?>">
 					<td><input type="text" name="description" size="50"></td>
 					<td><input type="text" name="url" size="50"></td>
 					<td><input type="file" name="myimage" id="myimage"></td>
@@ -154,25 +158,26 @@ try{
 		</table>
 					
 			<?php 
-			//
+			//array_key_exists- Checks if the given key or index exists in the array [14]. If key in array is "error" contain the error message in variable. 
 			if (array_key_exists('error', $_GET)) {
 
-				//
+				//array_key_exists- Checks if the given key or index exists in the array [14]. If key in array is "add" contain the error message in variable. Error message is not being outputted. 
 				if ($_GET['error'] == 'add') { 
 					$errors[] = "Uh oh! There was an error adding your wish item. Please try again later.";
 				} 
 				
-				//
+				//array_key_exists- Checks if the given key or index exists in the array [14]. If key in array is "delete" contain the error message in variable. Error message is not being outputted. 
 				if ($_GET['error'] == 'delete') { 
 					$errors[] = "Uh oh! There was an error deleting your wish item. Please try again later.";
 				}
 			} 
 
-			// 
+			// If the amount of intended "errors" exists then display following codes . 
+		//TODO: Add missing "div" end tag. Fix PHP positions. End tag is in the beginning of line of code. Starting tag is elsewhere. 
 			if (count($errors) > 0) { ?>
 				<div class="error">
 					<?php 
-						//   										 
+						//Lines of PHP intending to output the amount of "errors" stored in variable. There's no need display amount of errors to users.    										 
 						for($i = 0; $i < count($errors); $i++) {
 							echo $errors[$i];
 						} ?>
@@ -191,6 +196,9 @@ Sources:
 [9] https://www.php.net/manual/en/pdostatement.fetchall.php\
 [10]https://www.php.net/manual/en/language.errors.php7.php
 [11]https://stackoverflow.com/questions/43322413/laravel-php-foreachuserall-as-user-performance
+[12]https://html.com/input-type-hidden/
+[13]https://www.geeksforgeeks.org/why-to-check-both-isset-and-empty-function-in-php/
+[14]https://www.php.net/manual/en/function.array-key-exists.php
 					
 					
 					
