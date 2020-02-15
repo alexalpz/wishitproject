@@ -37,7 +37,7 @@ try{
 			$isadmin = $_POST['isadmin'];
 						
 			//$sql variable storing querie that will modify username and password in regards to the user input. exec() executes an SQL statement in a single function call, returning the number of rows affected by the statement [9].
-			//TODO: Would remove quoation marks on php variables. Would not concatenate the queries together. Join them. 
+			//TODO: Would remove quoation marks on php variables. Would not concatenate the queries together and join them. 
 			$sql = "UPDATE users SET username = '$username', password = '$password', securityquestion = '$securityquestion', securityanswer = '$securityanswer', " . 
 				"isadmin = '$isadmin' WHERE email = '$email';";
 			$stmt = $dbh->exec($sql);
