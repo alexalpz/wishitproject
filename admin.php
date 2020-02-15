@@ -103,7 +103,7 @@ try{
 			//    There is no block of code in between these opening and closing tags of php.
 			?>
 			
-			<!-- A table filled with table headers and no table data where the inputs may go. -->
+			<!-- A table filled with table headers and no table data where the inputs may go. Table has no closing tag.   -->  <!--TODO: Close table. may need to adjust table for data input-->
 			
 				<table>
 					<tr>
@@ -130,14 +130,15 @@ try{
 						
 					?>
 
-						<!-- 			 -->
+						<!--POST means the browser will send the data to the web server to be processed [17].	Form contains input lines in form of table. Input has specific requirements in order for it to be submitted. Inputs did not have "required" but had placed them on username and password as requested. Values store php lines where their value name will be printing --> 
+					<!--TODO: Add missing semicolon on style. add missing "table" tag on table before adding tr tag. Form inside tr tag, bad practice. Change email to "email" type, password to "password" type. -->
 						<form method="POST" action="adminhandler.php?isadmin=true" style="display: inline-block">
 							<tr>
 								
 							<input type="hidden" name="operation" value="edit">
 							<td><input type="text" 	 name="email" id="email" size="50" value="<?php echo $email;?>" maxlength="100" readonly></td>
-							<td><input type="text" 	 name="username" id="username" size="50" value="<?php echo $username;?>" maxlength="100" ></td>
-							<td><input type="text" 	 name="password" id="password" size="50" value="<?php echo $password;?>" maxlength="100" ></td>
+							<td><input type="text" 	required  name="username" id="username" size="50" value="<?php echo $username;?>" maxlength="100" ></td>
+							<td><input type="text" 	 required name="password" id="password" size="50" value="<?php echo $password;?>" maxlength="100" ></td>
 							<td><input type="text" 	 name="securityquestion" id="securityquestion" size="50" value="<?php echo $securityquestion;?>" maxlength="100" ></td>
 							<td><input type="text" 	 name="securityanswer" id="securityanswer" size="50" value="<?php echo $securityanswer;?>" maxlength="100" ></td>
 							<td><input type="text" 	 name="isadmin" id="isadmin" size="5" value="<?php echo $isadmin;?>" maxlength="1" ></td>
@@ -145,7 +146,8 @@ try{
 							
 						</form>
 
-						<!-- 			 -->
+						<!-- POST means the browser will send the data to the web server to be processed [17]. Unsure why both fields are hidden for or what it's purpose in the file is.  -->
+					<!--TODO: Add missing semicolon on style. Remove form from tr tag. -->
 						<form method="POST" action="adminhandler.php?isadmin=true" style="display: inline-block">
 							<input type="hidden" name="operation" value="delete">
 							<input type="hidden" name="email" value="<?php echo $email;?>">
@@ -159,7 +161,7 @@ try{
 			<?php } ?>	
 
 			<?php 
-				//
+				//array_key_exists- Checks if the given key or index exists in the array
 				if (array_key_exists('error', $_GET)) { ?>
 				<?php if ($_GET['error'] == 'add') { 
 					$errors[] = "Uh oh! There was an error adding your wish item. Please try again later.";
@@ -197,6 +199,7 @@ try{
 							 [14]https://www.php.net/manual/en/function.var-dump.php
 							 [15]https://www.geeksforgeeks.org/sizeof-operator-c/
 							 [16]https://stackoverflow.com/questions/43322413/laravel-php-foreachuserall-as-user-performance
+							 [17]https://html.com/attributes/form-method/
 							 
 							 */
 						} ?>
