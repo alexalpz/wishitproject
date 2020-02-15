@@ -1,11 +1,11 @@
 <?php
 	
-	//
+	//The first line tells PHP you'd like to see any errors that occur [1]. The second line will determine if the errors will be displayed or hidden to the user. The third line "error_reporting" sets which PHP errors are reported[2]. "E_ALL" reports all PHP errors[3].
 	ini_set('display_errors', 1);
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 	
-	//
+	///Setting "dbconnecterror" variable to “false” won't display anything.  "dbh" is placeholder variable that will connect to the webserver.
 	$dbconnecterror = FALSE;
 	$dbh = NULL;
 	$dbReadError = FALSE;
@@ -142,6 +142,12 @@
 				<?php } ?>
 				<ul>
 			</div>
+					
+				<?php /* 
+		Sources:
+		[1](http://www.peachpit.com/articles/article.aspx?p=674688&seqNum=4)
+		[2]  (https://www.php.net/manual/en/function.error-reporting.php)
+		[3]  (https://www.php.net/manual/en/function.error-reporting.php)*/ ?>
 		<?php } ?>
 
 	</body>
