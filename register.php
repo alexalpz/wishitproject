@@ -154,25 +154,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				}				  
 			  
 			}
-			<?php
-			/*Sources:
-			[1]  (http://www.peachpit.com/articles/article.aspx?p=674688&seqNum=4)
-			[2]  (https://www.php.net/manual/en/function.error-reporting.php)
-			[3]  (https://www.php.net/manual/en/function.error-reporting.php)
-			[4]  (https://www.geeksforgeeks.org/php-trim-function/)
-			[5]  (https://www.w3schools.com/php/php_superglobals_post.asp)
-			[6]  (https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP)
-			[7]  (https://www.geeksforgeeks.org/why-to-check-both-isset-and-empty-function-in-php/)
-			[8]  (https://www.php.net/manual/en/pdostatement.errorcode.php)
-			[9]  (https://www.php.net/manual/en/language.errors.php7.php)
-			https://www.w3schools.com/js/js_validation.asp
-			
-			
-			
-			
-			*/
-			?>
-			
+<?php
+/*Sources:
+[1]  (http://www.peachpit.com/articles/article.aspx?p=674688&seqNum=4)
+[2]  (https://www.php.net/manual/en/function.error-reporting.php)
+[3]  (https://www.php.net/manual/en/function.error-reporting.php)
+[4]  (https://www.geeksforgeeks.org/php-trim-function/)
+[5]  (https://www.w3schools.com/php/php_superglobals_post.asp)
+[6]  (https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP)
+[7]  (https://www.geeksforgeeks.org/why-to-check-both-isset-and-empty-function-in-php/)
+[8]  (https://www.php.net/manual/en/pdostatement.errorcode.php)
+[9]  (https://www.php.net/manual/en/language.errors.php7.php)
+https://www.w3schools.com/js/js_validation.asp
+
+
+
+
+*/
+?>
+
 		</script>
 		
 	</body>
