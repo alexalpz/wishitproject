@@ -10,8 +10,8 @@ if (isset($_COOKIE['wishit_session_id'])) {
 
 } else {
 
-	//This attempts to store a HTTP header of a unlogged page due to missing cookie value but redirects do no work due to PHP variables, in this case "?notloggedin=true" [4]. The "exit" function is missing a required message to print before terminating the script [5].
-	//TODO: Add some form of exit message to "exit" function. 
+	//This attempts to store a HTTP header of a unlogged page due to missing cookie value [4]. The "exit" function is missing a required message to print before terminating the script [5].
+	//TODO: Add some form of exit message to "exit" parameter. 
 	header("Location: index.php?notloggedin=true");
 	exit();
 	
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 	//The "array_key_exists" checks if the given key or index exists in the array. The "error" string specifies the key, and the $_GET specifies which array [7].
 	if(array_key_exists("error", $_GET)){
 		
-		//$_GET syntax is being used but there is no form in this file that contains the GET Method [8]. It's also comparing the key value to a string. Not entirely sure when 'db' would be be entered as data, this block of code may not be executed. 
+		//$_GET function is being used but there is no form in this file that contains the GET Method [8]. It's also comparing the key value to a string "db". Then if such matches, stores an error message in a variable with no output. 
 		if ($_GET['error'] == 'db') {
 			$errors[] = "Uh oh! There was a problem with the database.";
 		}
@@ -38,7 +38,7 @@ try{
 	$dbh= new PDO($conn_string, "phpmyadmin", "studentstudent");
 	$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-	// $sql variable stores querie to list any user with particular email, execution is not in a variable to be stored.  The "prepare" statement is sent to the database server.During execute the client binds parameter values and sends them to the server
+	// $sql variable stores querie to list any user with particular email, execution is not in a variable to be stored.  The "prepare" statement is sent to the database server. During execute the client binds parameter values and sends them to the server
 	//TODO: Add variable name to execution line. 
 	$sql = "SELECT * FROM users where email = '$email';";
 	$stmt = $dbh->prepare($sql);
@@ -67,7 +67,7 @@ try{
 	//The $user variable returns an array containing all of the remaining rows in the result set [12]. 
 	$users = $stmt->fetchAll();
 
-//This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching the throwable first "$e" [13] . It then plans to send an HTTP header displaying error in the application while also trying to concatenate with the last operation on the database handle. var_dump dumps information about a variable [14].
+//This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching throwable first, "$e" [13] . Stores error message in variable and gets concatenated with the error handler. It gets called but knows nothing about $dbh->errorCode. var_dump dumps information about a variable [14]
 }catch(Exception $e){
 	$errors[] = "There was an error connecting to the database. Please try again later. Error code " . $dbh->errorCode();
 	var_dump($e);
@@ -96,8 +96,8 @@ try{
 				No users list found.
 			
 			<?php 
-			// There is no block of code inside this else statement to run. 
-				//TODO: Add some code to the else statement for when a user IS found I pressume. 
+			
+				//TODO: Join the else statment with the blocks of code it intends to run instead of seperating it.  Also join the end tag of previous code to its intended function. 
 			} else { 	
 			?>
 			
@@ -105,7 +105,7 @@ try{
 			//    There is no block of code in between these opening and closing tags of php.
 			?>
 			
-			<!-- A table filled with table headers and no table data where the inputs may go. Table has no closing tag.   -->  <!--TODO: Close table. may need to adjust table for data input-->
+			<!-- A table filled with table headers and no table data where the inputs may go. Table has no closing tag.   -->  <!--TODO: Close table. Need to adjust table format and forms-->
 			
 				<table>
 					<tr>
@@ -133,7 +133,7 @@ try{
 						
 					?>
 
-						<!--POST means the browser will send the data to the web server to be processed [17].	Form contains input lines in form of table. Input has specific requirements in order for it to be submitted. Inputs did not have "required" but had placed them on username and password as requested. Values store php lines where their value name will be printing --> 
+						<!--POST means the browser will send the data to the web server to be processed [17].	Form contains input lines in form of table. Input has specific requirements in order for it to be submitted. Inputs did not have "required" but had placed them on username and password. Values store php lines where their value name will be printing --> 
 					<!--TODO: Add missing semicolon on style. add missing "table" tag on table before adding tr tag. Form inside tr tag, bad practice. Change email to "email" type, password to "password" type. -->
 						<form method="POST" action="adminhandler.php?isadmin=true" style="display: inline-block">
 							<tr>
