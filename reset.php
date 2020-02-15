@@ -83,22 +83,23 @@
 
 <html lang="en">
 
-	<!-- 		 -->
+	<!--  Will check if the head.php file has already been included, and if so, not include (require) it again. -->
 	<?php require_once('include/head.php');?>
 
 	<body>
 		
-		<!-- 		 -->		
+		<!-- 	Will check if the header.php file has already been included, and if so, not include (require) it again	 -->		
 		<?php require_once('include/header.php');?>
 		
 		<h3>Forgot Password</h3>
 
-		<!-- 		 -->
+		<!-- Form for password reset, and display securty questions for them to answer to verify it is them.		 -->
+		<!-- TODO: There's no need to refer to assigne "required" to itself. Just add required. -->
 		<form method="post" action="reset.php">
 			<input type="text" name="username" id="username" placeholder="Enter your username" required="required" size="40" value="<?php echo $username;?>" <?php if(isset($question)) { echo "readonly"; } ?>
 			<br>
 			<?php 
-			//
+			//isset — Determine if a the security question above is declared and is different than NULL [12].
 			if (isset($question)) { 
 				?>
 				<br>
@@ -111,7 +112,8 @@
 				<input type="text" name="answer" id="answer" size="40" value="<?php echo $answer;?>">	
 				
 				<?php 
-				//
+				// Attempting to compare security question's answer it the "correct" answer from the database.  If so, a password field is shown to them to possibly add another password for the user. It's intention is to reconfigure old password to new. 
+				//TODO: Password field should have type "password".
 				if ($answer == $correctanswer) { 
 				?>
 					<br>
@@ -132,12 +134,12 @@
 		<a class="loginLinks" href="register.php">Need to create an account?</a>
 		
 		<?php 
-		//
+		//If errors exists, display the following blocks of code. 
 		if (count($errors) > 0) { ?>
 			<div class="error">
 				<ul>
 				<?php 
-				//
+				// These lines intend to display the amount of errors that has occured. Not good practice.
 				for($i = 0; $i < count($errors); $i++) { ?>
 					<?php echo $errors[$i]; ?>
 				<?php } ?>
@@ -157,7 +159,8 @@
 		[9]  (https://www.php.net/manual/en/pdostatement.fetchall.php)
 		[10] (https://www.php.net/manual/en/language.types.array.php)
 		[11] (https://www.php.net/manual/en/language.errors.php7.php)
-		
+		[12] (https://www.php.net/manual/en/function.isset.php)
+	
 		
 		*/ ?>
 	
