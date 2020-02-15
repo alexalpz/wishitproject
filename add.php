@@ -6,7 +6,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-//Setting "dbconnecterror" variable to “false” will display nothing. "dbh" is variable connecting to database server along with the username and password to connect. "fail" variable is a placeholder called for when required input data is missing. 
+//Setting "dbconnecterror" variable to “false” won't display anything.  "dbh" is placeholder variable that will connect to the webserver. "fail" variable is a placeholder called for when required input data is missing. 
 
 
 $dbconnecterror = FALSE;
