@@ -8,7 +8,7 @@ error_reporting(E_ALL);
 $dbconnecterror = FALSE;
 $dbh = NULL;
 
-//Variables with empty strings. No way of inputting through this unless modified and updated later.
+//Variables with blank strings. 
 $email = "";
 $username = "";
 $password = "";
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 		//$sql variable concatenates two query strings. The "prepare" statement is sent to the database server[7].During execute the client binds parameter values and sends them to the server[7].
-				//TODO: Join querie strings together. Remove quotation marks on variables. Would add only a single querie in "prepare" parameters.
+				//TODO: Join querie strings together. Remove quotation marks on variables. 
 		$sql = "INSERT INTO users (email, username, password, securityquestion, securityanswer) " .
 			"VALUES ('$email', '$username', '$password', '$securityquestion', '$securityanswer')";			
 		$stmt = $dbh->prepare($sql);
