@@ -14,7 +14,7 @@ $dbh = NULL;
 $fail = NULL;
 
 
-	//All of the code within the try block is executed until an exception is potentially thrown. The code within the catch statement must handle the exception that was thrown.
+	//All of the code within the try block is executed until an exception is potentially thrown. The code within the catch statement must handle the exception that was thrown.[19]
 	try{
 
 		// First line is connecting to web server and database and the second line is connecting as the admin using the password required to be authorized.  PDO ERRMODE attribute (controls error reporting) to raise a PDOException that tells you what went wrong when it goes wrong. [4]
@@ -137,5 +137,6 @@ $fail = NULL;
 [16] (https://stackoverflow.com/questions/7467330/php-headerlocation-force-url-change-in-address-bar)
 [17] (https://www.geeksforgeeks.org/php-header-function/)
 [18] (https://www.php.net/manual/en/language.errors.php7.php)
+[19] (https://stackify.com/php-try-catch-php-exception-tutorial/)
 */
 ?>
