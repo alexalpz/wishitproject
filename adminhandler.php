@@ -76,17 +76,17 @@ try{
 	header("Location: admin.php?error=db");
 	exit();
 }
-	/*Sources
-	[1] https://www.w3resource.com/php/function-reference/isset.php
-	[2] https://www.php.net/manual/en/function.setcookie.php
-	[3] https://www.base64decoder.io/php/
-	[4] https://stackify.com/php-try-catch-php-exception-tutorial/
-	[5] https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP
-	[6] https://www.sitepoint.com/community/t/if--server-request-method-post-vs-isset-submit/252336/5
-	[7] https://www.w3schools.com/php/php_superglobals_get.asp
-	[8] https://www.php.net/manual/en/reserved.variables.post.php
-	[9] https://www.php.net/manual/en/pdo.exec.php
-	[10]https://www.php.net/manual/en/language.errors.php7.php
-	*/
+/*Sources
+[1] https://www.w3resource.com/php/function-reference/isset.php
+[2] https://www.php.net/manual/en/function.setcookie.php
+[3] https://www.base64decoder.io/php/
+[4] https://stackify.com/php-try-catch-php-exception-tutorial/
+[5] https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP
+[6] https://www.sitepoint.com/community/t/if--server-request-method-post-vs-isset-submit/252336/5
+[7] https://www.w3schools.com/php/php_superglobals_get.asp
+[8] https://www.php.net/manual/en/reserved.variables.post.php
+[9] https://www.php.net/manual/en/pdo.exec.php
+[10]https://www.php.net/manual/en/language.errors.php7.php
+*/
 	
 ?>
