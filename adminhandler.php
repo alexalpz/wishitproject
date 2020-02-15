@@ -3,7 +3,7 @@
 //The isset() function return false if testing variable contains a NULL value [1]. The value in this case contains the value of a cookie [2].
 if (isset($_COOKIE['wishit_session_id'])) {
 
-	////The $email variable stores built in function "Base64" to grab the encoded cookie value, if it exists, and returns the decoded data, if it has been encoded [3]. 
+	////The $loggedinemail variable stores built in function "Base64" to grab the encoded cookie value, if it exists, and returns the decoded data, if it has been encoded [3]. 
 	$loggedinemail = base64_decode($_COOKIE['wishit_session_id']);
 }
 
@@ -18,7 +18,7 @@ try{
 	//The purpose of this function is to check whether the request was done via POST method [6].
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-		//$_GET is a PHP global variable which is used to collect form data after submitting an HTML form with method="get" [7]. If key in array is "true",continue to send an HTTP location header displaying "index.php".  
+		//$_GET is a PHP global variable which is used to collect form data after submitting an HTML form with method="get" [7]. If key in array is "true",continue to send an HTTP location header and redirect to "index.php" page.  
 		//TODO: exit required message to display. Add it to parameter.
 		if ($_GET['isadmin']!= 'true'){
 			header("Location: index.php");
@@ -48,14 +48,14 @@ try{
 			//Accessing the form submission email data in the PHP script
 			$email = $_POST['email'];
 
-			//
+			//Rejecting submitted email from server if not similar to the encoded cookie values.
 			if ($email !== $loggedinemail){
 
-				//
+				// Removing invalid email from database that hadn't matched the cookie values. $stm variable storing execution.
 				$sql = "DELETE FROM wishes WHERE email = '$email';";
 				$stmt = $dbh->exec($sql);
 	
-				//
+				// Removing the invalid email from the "users" table since it did not match the cookie values. 
 				$sql = "DELETE FROM users WHERE email = '$email';";
 				$stmt = $dbh->exec($sql);			
 			}
@@ -63,11 +63,13 @@ try{
 		}
 	}
 
-	//
+	//No conditions for line of code. It attempts to redirect to the admin page.
+	//TODO: Add missing required message to the exit parameter. 
 	header("Location: admin.php");
 	exit();
 
-//
+//This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching throwable first, "$e" [18] . It then plans to send an HTTP header displaying error in the admin page.
+	//TODO: Must add required message in exit parameter.
 }catch(Exception $e){
 
 	//
@@ -84,6 +86,7 @@ try{
 	[7] https://www.w3schools.com/php/php_superglobals_get.asp
 	[8] https://www.php.net/manual/en/reserved.variables.post.php
 	[9] https://www.php.net/manual/en/pdo.exec.php
+	[10]https://www.php.net/manual/en/language.errors.php7.php
 	*/
 	
 ?>
