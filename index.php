@@ -52,10 +52,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$stmt->execute();
 		$records = $stmt->fetchAll();
 
-		// 
+		// If the data does not exists, continue with the following blocks of code.
 		if (count($records) > 0) {
 
-			//
+			//Recursive and multi-dimensional arrays stored in variables [10].
 			$email = $records[0]['email'];
 			$isadmin = $records[0]['isadmin'];
 
@@ -161,6 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 [7]  (https://www.php.net/manual/en/reserved.variables.post.php)
 [8]  (https://www.quora.com/What-is-SetAttribute-PDO-ATTR_ERRMODE-PDO-ERRMODE_EXCEPTION-in-PHP)
 [9]  (https://www.php.net/manual/en/pdostatement.fetchall.php)
+[10] (https://www.php.net/manual/en/language.types.array.php)
 					
 */
 
