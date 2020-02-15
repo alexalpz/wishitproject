@@ -54,7 +54,7 @@ $fail = NULL;
 			//empty method will check whether the "$fail" variable is empty. the !empty method above made sure it did have a varible. This whole stament may not be used.
 			if(empty($fail)){
 
-				//"$sql" variable concatenates two query strings, one involving previous variables that took input from somewhere (If anywhere at all).  A "wishes" table is implied to exists. The "prepare" statement is sent to the database server[8].During execute the client binds parameter values and sends them to the server [8].
+				//"$sql" variable concatenates two query strings.  The "prepare" statement is sent to the database server[8].During execute the client binds parameter values and sends them to the server [8].
 				//TODO: Join querie strings together. Remove quotation marks on variables. Would add only a single querie in "prepare" parameters.
 				
 				$sql = "INSERT INTO wishes (email, description, url) " .
