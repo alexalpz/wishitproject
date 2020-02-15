@@ -23,14 +23,14 @@
 		//   $_POST is widely used to pass variables [4]. Gets an associated array from query result resource. Username by default is set to blank.
 		$username = $_POST['username'];
 
-		// 	Delcaring variables. The array_key_exists() checks whether a specific key ("answer") or index is present inside an array ($_POST) or not [5]. The special NULL value represents a variable with no value [6].
+		// Delcaring variables. The array_key_exists() checks whether a specific key ("answer") or index is present inside an array ($_POST) or not [5]. The special NULL value represents a variable with no value [6].
 		if(array_key_exists("answer", $_POST)){
 			$answer = $_POST['answer'];
 		} else{
 			$answer = NULL;
 		}
 
-		// 	All of the code within the try block is executed until an exception is potentially thrown. 
+		// All of the code within the try block is executed until an exception is potentially thrown. 
 		try{
 
 			//First line is connecting to web server and database and the second line is connecting as the admin using the password required to be authorized.  PDO ERRMODE attribute (controls error reporting) to raise a PDOException that tells you what went wrong when it goes wrong [7]. 
@@ -72,7 +72,7 @@
 				//Store error message in this variable. No output to users.
 				$errors[] = "Uh oh! Could not find your username";
 
-		//	This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching throwable first, "$e" [11] . Stores error message in variable and gets concatenated with the error handler. It gets called but knows nothing about $dbh->errorCode.
+		//This catch stament is attempting to catch botch exeptions and errors by adding a catch block for exception after catching throwable first, "$e" [11] . Stores error message in variable and gets concatenated with the error handler. It gets called but knows nothing about $dbh->errorCode.
 		} catch (PDOException $e) {
 			$errors[] = "Uh oh! There was an error connecting to the database. Please try again later. Error code " . $dbh->errorCode();
 		}
@@ -146,23 +146,23 @@
 				<ul>
 			</div>
 					
-				<?php /* 
-		Sources:
-		[1](http://www.peachpit.com/articles/article.aspx?p=674688&seqNum=4)
-		[2]  (https://www.php.net/manual/en/function.error-reporting.php)
-		[3]  (https://www.php.net/manual/en/function.error-reporting.php)
-		[4]  (https://www.w3schools.com/php/php_superglobals_post.asp)
-		[5]  (https://www.geeksforgeeks.org/php-array_key_exists-function/)
-		[6]  (https://www.php.net/manual/en/language.types.null.php)
-		[7] (https://www.quora.com/Why-do-some-PHP-programmers-use-_SERVER-REQUEST_METHOD-POST)
-		[8]  (https://www.php.net/manual/en/mysqli.quickstart.prepared-statements.php)
-		[9]  (https://www.php.net/manual/en/pdostatement.fetchall.php)
-		[10] (https://www.php.net/manual/en/language.types.array.php)
-		[11] (https://www.php.net/manual/en/language.errors.php7.php)
-		[12] (https://www.php.net/manual/en/function.isset.php)
-	
+<?php /* 
+Sources:
+[1](http://www.peachpit.com/articles/article.aspx?p=674688&seqNum=4)
+[2]  (https://www.php.net/manual/en/function.error-reporting.php)
+[3]  (https://www.php.net/manual/en/function.error-reporting.php)
+[4]  (https://www.w3schools.com/php/php_superglobals_post.asp)
+[5]  (https://www.geeksforgeeks.org/php-array_key_exists-function/)
+[6]  (https://www.php.net/manual/en/language.types.null.php)
+[7] (https://www.quora.com/Why-do-some-PHP-programmers-use-_SERVER-REQUEST_METHOD-POST)
+[8]  (https://www.php.net/manual/en/mysqli.quickstart.prepared-statements.php)
+[9]  (https://www.php.net/manual/en/pdostatement.fetchall.php)
+[10] (https://www.php.net/manual/en/language.types.array.php)
+[11] (https://www.php.net/manual/en/language.errors.php7.php)
+[12] (https://www.php.net/manual/en/function.isset.php)
+
 		
-		*/ ?>
+*/ ?>
 	
 		<?php } ?>
 
