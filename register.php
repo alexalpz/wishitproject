@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			<div class="error">
 				The following errors occurred:
 				<ul>
-				<?php // These lines hope to display the amount of errors that has occured. Not good practice.   ?>
+				<?php // These lines intend to display the amount of errors that has occured. Not good practice.   ?>
 				<?php for($i = 0; $i < count($errors); $i++) { ?>
 					<li><?php echo $errors[$i]; ?></li>
 				<?php } ?>
