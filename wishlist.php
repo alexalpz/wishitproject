@@ -8,7 +8,7 @@ if (isset($_COOKIE['wishit_session_id'])) {
 
 } else {
 
-	////This attempts to store a HTTP header of a unlogged page due to missing cookie value but redirects do no work due to PHP variables, in this case "?notloggedin=true" [4]. The "exit" function is missing a required message to print before terminating the script [5].
+	//This attempts to store a HTTP header of a unlogged page due to missing cookie value but redirects do no work due to PHP variables, in this case "?notloggedin=true" [4]. The "exit" function is missing a required message to print before terminating the script [5].
 	//TODO: Add some form of exit message to "exit" function. 
 	header("Location: index.php?notloggedin=true");
 	exit();
@@ -36,7 +36,7 @@ try{
 	// If the data does not exists, continue with the following blocks of code.
 	if (count($records) < 1) {
 
-		// Continue to send a HTTP header to the server display error on login page.  \
+		// Continue to send a HTTP header to the server display error on login page. 
 		//TODO: Add required message to exit parameter. 
 		header("Location: index.php?notloggedin=true");
 		exit();
@@ -85,7 +85,7 @@ try{
 			
 			<?php 
 			//If rows of data are found, continue with the following lines of code. 
-				//TODO: Add a table tag to the table headers. Add <td> tags for data. 
+			//TODO: Add a table tag to the table headers. Add <td> tags for data. Would not seperate closing and starting tags in a seperate PHP line. Join them together. 
 			} else { 	
 			?>
 			<tr>
@@ -128,7 +128,7 @@ try{
 				
 			<?php } 
 				//This code seems to only hold the closing tag of previous block of code. Bad practice.
-				//TODO: Join closing tag to code above. 
+				//TODO: Join closing tag to it's original line of code. 
 			?>	
 		</table>
 		<hr>
